@@ -2,7 +2,11 @@
 
 
 
-<%= form_for @sentence do |f| %>
-  <%= f.label : %>
+<%= form_for [@story, @sentence] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.hidden_field(:image_id, :value => @image.id) %>
   <%= f.submit %>
 <% end %>

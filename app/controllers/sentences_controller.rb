@@ -9,28 +9,33 @@ class SentencesController < ApplicationController
   end
 
   def new
+    @story = Story.find(params[:story_id])
+    @image = Image.order("RANDOM()").first
     @sentence = Sentence.new
   end
 
   def create
-    @sentence = Sentence.new(sentence_params)
+    @story = Story.find(params[:story_id])
+    @sentence = @story.sentences.new(sentence_params)
     if @sentence.save
     flash[:notice] = "Sentence successfully added!"
-      redirect_to  sentences_path
+      redirect_to  story_path(@story)
     else
       render :new
     end
   end
 
   def edit
+    @story = Story.find(params[:story_id])
     @sentence = Sentence.find(params[:id])
+    @image = Image.find(@sentence.image_id)
   end
 
   def update
     @sentence= Sentence.find(params[:id])
     if @sentence.update(sentence_params)
       flash[:notice] = "Sentence successfully updated!"
-      redirect_to sentences_path
+      redirect_to story_path(@sentence.story)
     else
       render :edit
     end
@@ -40,7 +45,7 @@ class SentencesController < ApplicationController
     @sentence = Sentence.find(params[:id])
     if @sentence.destroy
       flash[:notice] = "Sentence successfully removed!"
-      redirect_to sentences_path
+      redirect_to story_path(@sentence.story)
     end
   end
 

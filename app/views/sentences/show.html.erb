@@ -1,10 +1,9 @@
 <h1><%= @sentence.content %></h1>
 <p>~<%= @sentence.author %></p>
 <%= image_tag("#{@image.url}") %>
-
-
-<p><%= link_to "Edit", edit_story_sentence_path(@sentence) %></p>
-<p><%= link_to "Delete", story_sentence_path(@sentence),
+<hr>
+<span><%= link_to "Edit", edit_story_sentence_path(@sentence.story, @sentence) %></span>
+<span><%= link_to "Delete", story_sentence_path(@sentence),
                          :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
-<p><%= link_to "Return to sentences", story_path %></p>
+                                   :method => "delete"} %></span>
+<span><%= link_to "Return to sentences", story_path(@sentence.story) %></span>
