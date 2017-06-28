@@ -17,7 +17,7 @@ image_list.each do |url|
   Image.create(url: url)
 end
 
-10.times do |i|
+20.times do |i|
   story = Story.create!(title: Faker::Hipster.word)
 
   5.times do |i|
