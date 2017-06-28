@@ -13,9 +13,16 @@
       <div class="container">
         <ul>
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "New Story", new_story_path %></li>
-          <li>Link</li>
-          <li>Link</li>
+          <% if @story %>
+            <li><%= link_to "Create Sentence", new_story_sentence_path(@story) %></li>
+            <li><%= link_to "Edit Story", edit_story_path(@story) %></li>
+            <li><%= link_to "Delete", story_path(@story), :data => {:confirm => "You sure?", :method => "delete"} %></li>
+          <% end %>
+          <% if @sentence %>
+            <li><%= link_to "Edit Sentence", edit_story_sentence_path(@sentence.story, @sentence) %></li>
+            <li><%= link_to "Delete Sentence", story_sentence_path(@sentence), :data => {:confirm => "You sure?", :method => "delete"} %></li>
+            <li><%= link_to "Return", story_path(@sentence.story) %></li>
+          <% end %>
         </ul>
       </div>
     </div>

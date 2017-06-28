@@ -3,11 +3,3 @@
 <% @story.sentences.order(:created_at).each do |sentence| %>
   <li><%= link_to sentence.content, story_sentence_path(@story, sentence) %> ~<em><%= sentence.author %></em></li>
 <% end %>
-
-<hr>
-<span><%= link_to "Create Sentence", new_story_sentence_path(@story) %></span> |
-<span><%= link_to "Edit", edit_story_path(@story) %></span> |
-<span><%= link_to "Delete", story_path(@story),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></span> |
-<span><%= link_to "Return to stories", stories_path %></span>

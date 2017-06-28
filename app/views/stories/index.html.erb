@@ -16,6 +16,7 @@
     <% @stories.each do |story| %>
       <a href="<%= story_path(story) %>"><li class="flex-row"><%= story.title.capitalize %></li></a>
     <% end %>
+    <a href="<%= new_story_path %>"><li class="flex-row">New Story</li></a>
   </ul>
 
 </div>
