@@ -9,4 +9,5 @@ class Story < ApplicationRecord
     .order("sentences_count DESC")
     .limit(3)
     )}
+
 end

@@ -2,6 +2,7 @@ class StoriesController < ApplicationController
   def index
     @stories = Story.all.order(:title)
     @most_sentences = Story.most_sentences
+    @contributor = Sentence.main_contributor
   end
 
   def show

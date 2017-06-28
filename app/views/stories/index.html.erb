@@ -3,8 +3,10 @@
 <h3>Featured Stories</h3>
 <% @most_sentences.each do |most| %>
  <li><a href="stories/<%= most.id %>"><%= most.title %></a></li>
-
 <% end %>
+
+<h3>Most Popular Contributor</h3>
+<%= @contributor %>
 
 <br>
 
