@@ -1,0 +1,7 @@
+<h1>Show Image</h1>
+
+<p><%= link_to "Edit", edit_image_path(@image) %></p>
+<p><%= link_to "Delete", image_path(@image),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+<p><%= link_to "Return to images", images_path %></p>

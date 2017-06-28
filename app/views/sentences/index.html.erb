@@ -1,0 +1,11 @@
+<h1>Sentences</h1>
+
+<ul>
+  <% @sentences.each do |sentence| %>
+    <li><%= link_to "Show", sentence_path(sentence) %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to "New Sentence", new_sentence_path %>

@@ -1,0 +1,7 @@
+<h1>Show Sentence</h1>
+
+<p><%= link_to "Edit", edit_sentence_path(@sentence) %></p>
+<p><%= link_to "Delete", sentence_path(@sentence),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+<p><%= link_to "Return to sentences", sentences_path %></p>
