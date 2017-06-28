@@ -1,8 +1,16 @@
 <h1>Stories</h1>
 
+<h3>Featured Stories</h3>
+<% @most_sentences.each do |most| %>
+ <li><a href="stories/<%= most.id %>"><%= most.title %></a></li>
+
+<% end %>
+
+<br>
+
 <ul>
   <% @stories.each do |story| %>
-    <li><%= link_to story.title, story_path(story) %></li>
+    <li><%= link_to story.title, story_path(story) %> - <%= story.sentences.count %></li>
   <% end %>
 </ul>
 

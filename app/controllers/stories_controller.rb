@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
   def index
-    @stories = Story.all
+    @stories = Story.all.order(:title)
+    @most_sentences = Story.most_sentences
   end
 
   def show
@@ -41,6 +42,11 @@ class StoriesController < ApplicationController
       flash[:notice] = "Story successfully removed!"
       redirect_to stories_path
     end
+  end
+
+  def most_sentences
+    @stories = Story.most_sentences
+    render
   end
 
 private
