@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
     if @story.save
     flash[:notice] = "Story successfully added!"
-      redirect_to  stories_path
+      redirect_to  story_path(@story)
     else
       render :new
     end

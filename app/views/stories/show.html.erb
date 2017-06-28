@@ -1,7 +1,7 @@
 <h1><%= @story.title %></h1>
 
 <% @story.sentences.each do |sentence| %>
-  <li><%= sentence.content %> ~<em><%= sentence.author %></em></li>
+  <li><%= link_to sentence.content, story_sentence_path(sentence) %> ~<em><%= sentence.author %></em></li>
 <% end %>
 
 <p><%= link_to "Edit", edit_story_path(@story) %></p>
