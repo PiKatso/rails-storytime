@@ -5,6 +5,7 @@ class SentencesController < ApplicationController
 
   def show
     @sentence = Sentence.find(params[:id])
+    @image = Image.find(@sentence.image_id)
   end
 
   def new

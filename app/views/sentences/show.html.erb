@@ -1,5 +1,7 @@
 <h1><%= @sentence.content %></h1>
 <p>~<%= @sentence.author %></p>
+<%= image_tag("#{@image.url}") %>
+
 
 <p><%= link_to "Edit", edit_story_sentence_path(@sentence) %></p>
 <p><%= link_to "Delete", story_sentence_path(@sentence),
