@@ -2,7 +2,7 @@
 
 <h3>Featured Stories</h3>
 <% @most_sentences.each do |most| %>
- <li><a href="stories/<%= most.id %>"><%= most.title %></a></li>
+ <li><a href="stories/<%= most.id %>"><%= most.title.capitalize %></a></li>
 <% end %>
 
 <h3>Most Popular Contributor</h3>
@@ -10,12 +10,12 @@
 
 <br>
 
-<ul>
-  <% @stories.each do |story| %>
-    <li><%= link_to story.title, story_path(story) %> - <%= story.sentences.count %></li>
-  <% end %>
-</ul>
+<h1>Select Story</h1>
 
-<hr>
+  <ul class="d-flex">
+    <% @stories.each do |story| %>
+      <a href="<%= story_path(story) %>"><li class="flex-row"><%= story.title.capitalize %></li></a>
+    <% end %>
+  </ul>
 
-<%= link_to "New Story", new_story_path %>
+</div>

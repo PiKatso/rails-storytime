@@ -9,6 +9,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="my-nav">
+      <div class="container">
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "New Story", new_story_path %></li>
+          <li>Link</li>
+          <li>Link</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
